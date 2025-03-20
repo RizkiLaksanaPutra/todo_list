@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "DM Sans", sans-serif;
+    background-color: #0f172b;
+    padding: 20px;
+  }
+
+  h1 {
+    @apply mx-auto text-center text-5xl font-bold leading-tight tracking-[-1%] text-black sm:text-[64px] sm:leading-[76px];
+  }
+
+  li {
+    @apply p-[12px] border-b-1 border-b-[#AB8BFF] border-solid
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#D6C7FF] to-[#AB8BFF] bg-clip-text text-transparent;
+  }
+}
+
+@layer components {
+  .button-view {
+    @apply bg-white px-3 py-1 rounded-sm;
+  }
+
+  .button-container {
+    @apply flex flex-row justify-center items-center mx-auto mt-3 gap-10;
+  }
+}
