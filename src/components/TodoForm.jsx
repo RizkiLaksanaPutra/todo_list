@@ -1,25 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-const InputText = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  const getValue = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(inputValue);
-  };
-
+const TodoForm = ({ inputValue, handleChangeAndSubmit }) => {
   return (
-    <form className="flex mb-[20px]" onSubmit={handleSubmit}>
+    <form className="flex mb-[20px]" onSubmit={handleChangeAndSubmit}>
       <input
         type="text"
         placeholder="Add new task"
         className="flex-1 p-[10px] text-[16px] border-[#AB8BFF] border-2 border-r-0 focus:outline-none focus:ring-0"
         value={inputValue}
-        onChange={getValue}
+        onChange={handleChangeAndSubmit}
         required
       />
       <button
@@ -32,4 +21,4 @@ const InputText = () => {
   );
 };
 
-export default InputText;
+export default TodoForm;
