@@ -4,7 +4,7 @@ import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
 export default function App() {
-  const [tasks, setTasks] = useState(["Coba Coba", "Maen CS"]);
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
   const handleInputChange = (e) => {
@@ -13,6 +13,8 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTasks([...tasks, newTask]);
+    setNewTask("");
   };
 
   return (
@@ -25,7 +27,7 @@ export default function App() {
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
       />
-      <TodoList tasks={tasks}/>
+      <TodoList tasks={tasks} />
     </main>
   );
 }
