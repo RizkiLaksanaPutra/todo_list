@@ -4,16 +4,15 @@ import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
 export default function App() {
-  const [inputValue, setInputValue] = useState("");
+  const [tasks, setTasks] = useState(["Coba Coba", "Maen CS"]);
+  const [newTask, setNewTask] = useState("");
 
-  const handleChangeAndSubmit = (e) => {
-    if (e.type === "change") {
-      setInputValue(e.target.value);
-    } else if (e.type === "submit") {
-      e.preventDefault();
-      console.log(inputValue);
-      setInputValue("");
-    }
+  const handleInputChange = (e) => {
+    setNewTask(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -22,10 +21,11 @@ export default function App() {
         <span className="text-gradient">Todo</span> List
       </h1>
       <TodoForm
-        inputValue={inputValue}
-        handleChangeAndSubmit={handleChangeAndSubmit}
+        newTask={newTask}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
       />
-      <TodoList props={inputValue}/>
+      <TodoList tasks={tasks}/>
     </main>
   );
 }
