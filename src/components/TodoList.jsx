@@ -24,10 +24,10 @@ const TodoList = (props) => {
             return (
               <li key={index} className="flex justify-between items-center">
                 <span className="flex-grow">{task}</span>
-                <button className="ml-2 cursor-pointer rounded-sm border-1 border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out focus:bg-[#8355f7]">
+                <button className="ml-2 cursor-pointer rounded-sm border-1 border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out active:bg-[#8355f7]">
                   Done
                 </button>
-                <button className="ml-2 cursor-pointer rounded-sm border-1 border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out focus:bg-[#8355f7]">
+                <button className="ml-2 cursor-pointer rounded-sm border-1 border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out active:bg-[#8355f7]">
                   Delete
                 </button>
               </li>
