@@ -19,14 +19,32 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newTask.trim() !== "") {
-      setTasks([...tasks, { taskname: newTask, completed: false }]);
+      const updatedTasks = [...tasks, { taskName: newTask, completed: false }];
+      setTasks(updatedTasks);
       setNewTask("");
     }
+  };
+
+  const toggleComplete = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = !updatedTasks[index].completed;
+    setTasks(updatedTasks);
+  };
+
+  const deleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
   };
 
   useEffect(() => {
     localStorage.setItem("savedTasks", JSON.stringify(tasks));
   }, [tasks]);
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "active") return !task.completed;
+    if (filter === "completed") return task.completed;
+    return true;
+  });
 
   return (
     <main className="max-w-[600px] mx-auto bg-white rounded-lg p-[20px]">
@@ -38,7 +56,13 @@ export default function App() {
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
       />
-      <TodoList tasks={tasks} />
+      <TodoList
+        tasks={filteredTasks}
+        currentFilter={filter}
+        toggleComplete={toggleComplete}
+        deleteTask={deleteTask}
+        setFilter={setFilter}
+      />
     </main>
   );
 }
