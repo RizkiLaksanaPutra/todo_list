@@ -11,7 +11,7 @@ const TodoList = ({
     <>
       <div className="flex justify-center items-center gap-4 mb-4">
         <button
-          className={`cursor-pointer rounded-sm border border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out ${
+          className={`filter-button ${
             currentFilter === "all" ? "bg-[#8355f7] text-white" : ""
           }`}
           onClick={() => setFilter("all")}
@@ -19,7 +19,7 @@ const TodoList = ({
           All List
         </button>
         <button
-          className={`cursor-pointer rounded-sm border-1 border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out ${
+          className={`filter-button ${
             currentFilter === "active" ? "bg-[#8355f7] text-white" : ""
           }`}
           onClick={() => setFilter("active")}
@@ -27,7 +27,7 @@ const TodoList = ({
           Active
         </button>
         <button
-          className={`cursor-pointer rounded-sm border-1 border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out ${
+          className={`filter-button ${
             currentFilter === "completed" ? "bg-[#8355f7] text-white" : ""
           }`}
           onClick={() => setFilter("completed")}
@@ -52,13 +52,13 @@ const TodoList = ({
                   {task.taskName}
                 </span>
                 <button
-                  className="ml-2 cursor-pointer rounded-sm border border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out active:bg-[#8355f7]"
+                  className="toggle-button"
                   onClick={() => toggleComplete(index)}
                 >
                   {task.completed ? "Done" : "Mark Done"}
                 </button>
                 <button
-                  className="ml-2 cursor-pointer rounded-sm border-1 border-[#AB8BFF] px-2 py-1 hover:bg-[#AB8BFF] transition duration-300 ease-in-out active:bg-[#8355f7]"
+                  className="toggle-button"
                   onClick={() => deleteTask(index)}
                 >
                   Delete
